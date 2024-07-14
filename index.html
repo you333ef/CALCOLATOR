@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./bootstrap-4.0.0-dist (1)/css/bootstrap.css">
+    <link rel="stylesheet" href="./leon.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="calculator text-center">
+        <div class="display" id="display"></div>
+        <div class="btn-group-vertical w-100">
+          <div class="btn-group">
+            <button class="btn btn-dark" onclick="clearDisplay()" id="C">DEL</button>
+            <button class="btn btn-dark" id="toggle" >±</button>
+            <button class="btn btn-dark" id="percent" >%</button>
+            <button class="btn btn-dark" id="Divisionsign" >÷</button>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-dark" id="seven">7</button>
+            <button class="btn btn-dark" id="eight">8</button>
+            <button class="btn btn-dark" id="nine">9</button>
+            <button class="btn btn-dark" id="FE" >×</button>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-dark" id="four">4</button>
+            <button class="btn btn-dark" id="five">5</button>
+            <button class="btn btn-dark" id="six">6</button>
+            <button class="btn btn-dark" id="mineus" >−</button>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-dark" id="one">1</button>
+            <button class="btn btn-dark" id="two">2</button>
+            <button class="btn btn-dark" id="three">3</button>
+            <button class="btn btn-dark" id="plus">+</button>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-dark" id="zero">0</button>
+            <button class="btn btn-dark" id="point">.</button>
+            <button class="btn btn-dark" style="width: 50%;" id="EQUAL">=</button>
+          </div>
+        </div>
+    </div>
+<script src="./bootstrap-4.0.0-dist (1)/js/jquery-3.7.1.min.js"></script>
+<script src="./bootstrap-4.0.0-dist (1)/js/popper.min.js"></script>
+<script src="./bootstrap-4.0.0-dist (1)/js/bootstrap.js"></script>
+<script>
+  function clearDisplay(){
+    document.getElementById('display').textContent = '';
+  }
+
+  document.querySelector("#zero").onclick = function() {
+    document.getElementById("display").innerHTML += '0';
+  }
+  document.querySelector("#one").onclick = function() {
+    document.getElementById("display").innerHTML += '1';
+  }
+  document.querySelector("#two").onclick = function() {
+    document.getElementById("display").innerHTML += '2';
+  }
+  document.querySelector("#three").onclick = function() {
+    document.getElementById("display").innerHTML += '3';
+  }
+  document.querySelector("#four").onclick = function() {
+    document.getElementById("display").innerHTML += '4';
+  }
+  document.querySelector("#five").onclick = function() {
+    document.getElementById("display").innerHTML += '5';
+  }
+  document.querySelector("#six").onclick = function() {
+    document.getElementById("display").innerHTML += '6';
+  }
+  document.querySelector("#seven").onclick = function() {
+    document.getElementById("display").innerHTML += '7';
+  }
+  document.querySelector("#eight").onclick = function() {
+    document.getElementById("display").innerHTML += '8';
+  }
+  document.querySelector("#nine").onclick = function() {
+    document.getElementById("display").innerHTML += '9';
+  }
+  document.querySelector("#plus").onclick = function() {
+    document.getElementById("display").innerHTML += '+';
+  }
+  document.querySelector("#mineus").onclick = function() {
+    document.getElementById("display").innerHTML += '-';
+  }
+  document.querySelector("#Divisionsign").onclick = function() {
+    document.getElementById("display").innerHTML += '/';
+  }
+  document.querySelector("#FE").onclick = function() {
+    document.getElementById("display").innerHTML += '*';
+  }
+  document.querySelector("#percent").onclick = function() {
+    document.getElementById("display").innerHTML += '%';
+  }
+  document.querySelector("#point").onclick = function() {
+    document.getElementById("display").innerHTML += '.';
+  }
+
+  document.querySelector("#EQUAL").onclick = function() {
+    let expression = document.getElementById("display").innerText;
+    let result = eval(expression.replace(/÷/g, '/').replace(/×/g, '*'));
+    document.getElementById("display").innerText = result;
+  }
+  document.querySelector("#toggle").onclick = function() {
+    let display = document.getElementById("display");
+    let currentValue = parseFloat(display.innerText);
+
+    // Check if currentValue is valid number
+    if (!isNaN(currentValue)) {
+      display.innerText = -currentValue;
+    }
+    
+  }
+</script>
+</body>
+</html>
